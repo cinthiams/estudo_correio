@@ -1,0 +1,25 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+</div>
+<br> </br>
+<div class="card border-primary mb-3" style="max-width: 27rem;">
+  <div class="card-header">{{ resumo }}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">{{ status1 }}</h5>
+    <p class="card-text"> {{ status2 }}</p>
+  </div>
+</div>
+<div class="card border-primary mb-3" style="max-width: 27rem;">
+  <div class="card-header">{{ resumo }}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">{{ status1 }}</h5>
+    <p class="card-text"> {{ status2 }}</p>
+  </div>
+</div>
+
+
+{% endblock %}

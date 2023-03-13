@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<img src={{ foto }} class="img-fluid profile-image" width="150">
+			
+<div class="ml-3">
+  <h5 class="name">{{ name }}</h5>
+  <p class="mail">{{ email }}</p>
+</div>
+ 
+<div class="container emp-profile">
+  <form method="post">
+      <div class="row">
+     
+              </div>
+          </div>
+      </div>
+  </form>           
+</div>
+
+
+
+
+<div class="container d-flex justify-content-center mt-5">
+
+	<div class="card">
+		
+		<div class="top-container">
+			
+    
+		</div>
+    	
+    <span class="badge badge-secondary">
+      <h7 class="align-baseline">Endereço</h7></span>
+
+
+
+		<div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
+      
+				<div class="dollar-div px-3">
+         
+          <div class="d-flex flex-column ms-3">
+            <span>{{ rua }}|{{ bairro}} | {{ Numero}}</span>
+            <span>{{ cidade}} | {{ estado}} | {{ cep }}</span>
+            
+        </div>
+   
+
+				</div>
+		
+
+		</div>
+
+		<div class="recent-border mt-4">
+			<span class="recent-orders">Rastreios</span>
+      <span class="recent-orders">:</span>
+
+     
+      <div class="p-2 bd-highlight" > <span class="badge badge-secondary">{{ codigo }}</span></div>
+		</div>
+
+
+{% endblock %}
+  
