@@ -36,4 +36,4 @@ class Usuario(Base):
   endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
   foto = StdImageField('foto', upload_to='path/to/img', null=True)
   def __unicode__(self):
-    return "{}".format(self.usuario, self.encomendas, self.endereco.rua, self.endereco.bairro, self.endereco.numero, self.endereco.cep, self.endereco.complemento, self.endereco.cidade,self.endereco.estado)
+    return "{}".format(self.usuario.username, self.usuario.password, self.usuario.email, self.usuario.groups,self.encomendas, self.endereco.rua, self.endereco.bairro, self.endereco.numero, self.endereco.cep, self.endereco.complemento, self.endereco.cidade,self.endereco.estado)
