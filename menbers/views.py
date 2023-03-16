@@ -7,7 +7,7 @@ from correios.models import Usuario, Endereco
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from .forms import createUserForms
-
+from api import url 
 
 def login_user(request):
   if request.method == 'POST': 
