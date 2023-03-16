@@ -6,8 +6,8 @@ __pycache__/
 # C extensions
 *.so
 .env
-.teste.py
-.anotacoes.txt
+.teste/
+.anotacoes/
 # Distribution / packaging
 .Python
 build/
