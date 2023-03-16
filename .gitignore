@@ -2,11 +2,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+.gitignore
 # C extensions
 *.so
 .env
-.C:\Users\Cinthia\Desktop\correios_api\teste.py
+.\correios_api\teste.py
+.\correios_api\anotacoes.txt
 # Distribution / packaging
 .Python
 build/
