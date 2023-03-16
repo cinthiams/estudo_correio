@@ -6,8 +6,8 @@ __pycache__/
 # C extensions
 *.so
 .env
-.\correios_api\teste.py
-.\correios_api\anotacoes.txt
+.teste.py
+.anotacoes.txt
 # Distribution / packaging
 .Python
 build/
