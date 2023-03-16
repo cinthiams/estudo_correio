@@ -31,9 +31,9 @@ class Encomenda(Base):
   status = models.BooleanField(default=True)
   
 class Usuario(Base):
-  usuario =  models.OneToOneField(User,on_delete=models.CASCADE, unique=True)
-  encomendas = models.ForeignKey(Encomenda,on_delete=models.CASCADE)
-  endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
+  usuario =  models.OneToOneField(User, on_delete=models.CASCADE)
+  encomendas = models.ManyToManyField(Encomenda,null=True)
+  endereco = models.ManyToManyField(Endereco,null= True)
   foto = StdImageField('foto', upload_to='path/to/img', null=True)
-  def __unicode__(self):
-    return "{}".format(self.usuario.username, self.usuario.password, self.usuario.email, self.usuario.groups,self.encomendas, self.endereco.rua, self.endereco.bairro, self.endereco.numero, self.endereco.cep, self.endereco.complemento, self.endereco.cidade,self.endereco.estado)
+  def __str__(self):
+    return "{}".format(self.usuario.username, self.usuario.password, self.usuario.email, self.usuario.groups,self.encomendas)

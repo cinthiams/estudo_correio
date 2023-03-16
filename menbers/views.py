@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout 
 from django.contrib.auth.models import User, Group
 from django.contrib import messages
-from correios.models import Usuario
+from correios.models import Usuario, Endereco
 # Create your views here.
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
@@ -42,53 +42,36 @@ def logout_user(request):
 
   
 
-def register_user(request,**args):
+def register_user(request):
   new_group = Group.objects.get( name="clientes")
   if request.method =='POST':
-    username1 = request.POST.get('username')
-    email1 = request.POST.get('email')
-    password1 = request.POST.get('password1')
-    password2 = request.POST.get('password2')
+    
+    user = User.objects.create_user(username= request.POST['username'], email= request.POST['email'], password= request.POST['password1'])
+    user.groups.add(new_group)
+    user.save()
+    usuario = authenticate(request, username=request.POST['username'], password=request.POST['password1'])
+    login(request, usuario)
+    return redirect('endereco')
   
-    try:
-      
-      if password1 != password2:
-        print('senha incorreta')
-        messages.success(request,'senha diferente da outra')
-        return redirect('registro')
-      if User.objects.filter(email=email1).exists():
-        messages.success(request,'usuario já existe')
-        print('usuario já existeeeeeeeeeeeeeeeeeeeeeeeee')
-        return redirect('registro')
-      try:
-        user = User.objects.get_or_create(username=username1, email=email1, password=password1, commit = False)
-        user.groups.add(new_group)
-        user.save()
-  
-        
-        return redirect('perfil')
-      except:
-       
-        messages.error(request,"usuario não salvo -------------------------------")
-    except:
-      messages.error(request,"usuario não definido")
-      return render(request,'registro.html') 
 
   return render(request,'registro.html') 
 
 
 def register_address(request):
-  usuario = Usuario.objects.get()
-  if request.method == 'POST': 
-       context= {
-                    'rua': usuario.endereco.rua,
-                    'bairro': usuario.endereco.bairro,
-                    'cep': usuario.endereco.cep,
-                    'numero': usuario.endereco.numero
-                    #'cidade': usuario.endereco.cidade
-                    } 
-       
+  #usuario = Usuario.objects.filter(usuario = request.user )
+  #print(usuario)
+
+  
+
+  if request.method == 'POST':
      
+     
+    endereco = Endereco.objects.create(cep = request.POST['cep'], rua = request.POST['rua'], bairro = request.POST['bairro'],estado =request.POST['estado'], numero = request.POST['cep'])
+      
+    usuario = Usuario.objects.get(usuario = request.user)
+    usuario.endereco.add(endereco)
+    usuario.save()     
+    return redirect('perfil')
   return render(request,'endereco.html')
 
   

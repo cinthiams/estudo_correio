@@ -6,7 +6,7 @@ urlpatterns = [
    
     
    
-    path('perfil', Perfil.as_view(), name='Perfil'),
+    path('perfil', Perfil.as_view(), name='perfil'),
     path('rastreio', Rastreio.as_view(), name='rastreio'),
     
     
