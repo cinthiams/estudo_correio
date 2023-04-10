@@ -1,0 +1,11 @@
+Views baseadas em funções (FBV - Function-Based Views): 
+são views que são definidas como funções Python, onde a função recebe uma solicitação HTTP e retorna uma resposta HTTP.
+ É a forma mais simples de definir uma view em Django.
+
+Views baseadas em classes (CBV - Class-Based Views): são views que são definidas como classes Python,
+ onde a classe herda de uma classe base que fornece comportamentos padrão, tornando mais fácil a escrita de views mais complexas.
+
+Views genéricas (GV - Generic Views): 
+são views que já vem com funcionalidades pré-definidas para realizar tarefas comuns como listagem de objetos,
+ exibição de um detalhe, formulários de criação, atualização e remoção de objetos, etc. As views genéricas podem ser personalizadas 
+ e adaptadas para atender a necessidades específicas.

@@ -30,13 +30,20 @@ def Rastreio(request):
     
     teste = requests.get(url)
     todos = json.loads(teste.content)
-    print(todos['codigo'],'informaçoes',todos['eventos'][0]['status'])
+    #print(todos['codigo'],'informaçoes',todos['eventos'][0]['status'])
+    eventos_list = []
     for i in todos['eventos']:
       print(i['status'])
-    context = {
-      'status': todos['eventos'][0]['status'],
+      evento_dict  = {
+        'codigo': todos['codigo'],
+        'local':i['local'],
+         'status':i['status'],
+        
+      }
+      eventos_list.append(evento_dict)
+      print(evento_dict)
+    context = {'evento': eventos_list}
       
-    }
     return HttpResponse(template.render(context, request))
     
   return render(request,'rastreio.html')

@@ -8,16 +8,18 @@
 <br> </br>
 
 <form method=GET>
- 
+  {% for evento in evento %}
 <div class="card border-primary mb-3" style="max-width: 27rem;">
- 
-  <div class="card-header">{{ resumo }}</div>
-  <div class="card-body text-primary">
-    <h5 class="card-title">{{ status }}</h5>
-    <p class="card-text"> {{ status }}</p>
-  </div>
-</div>
 
+
+  <div class="card-header">{{ evento.codigo  }}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">{{ evento.local }}</h5>
+    <p class="card-text"> {{ evento.status }}</p>
+  </div>
+  
+</div>
+{% endfor %}
 </form>
 
 
